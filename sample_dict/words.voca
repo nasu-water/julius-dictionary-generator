@@ -1,0 +1,70 @@
+% WORD0
+サンプル	s a N p u r u
+% WORD1
+文言	m o N g o N
+% WORD2
+エアコン	e a k o N
+% WORD3
+の	n o
+% WORD4
+温度	o N d o
+% WORD5
+を	o
+% WORD6
+下げ	s a g e
+% WORD7
+て	t e
+% WORD8
+つけ	ts u k e
+% WORD9
+電気	d e N k i
+% WORD10
+テレビ	t e r e b i
+% WORD11
+消し	k e sh i
+% WORD12
+パソコン	p a s o k o N
+% WORD13
+調子	ch o u sh i
+% WORD14
+が	g a
+% WORD15
+悪い	w a r u i
+% WORD16
+です	d e s u
+% WORD17
+暖房	d a N b o u
+% WORD18
+切っ	k i q
+% WORD19
+部屋	h e y a
+% WORD20
+暑い	a ts u i
+% WORD21
+寒い	s a m u i
+% WORD22
+一	i ch i
+% WORD23
+度	d o
+% WORD24
+二	n i
+% WORD25
+三	s a N
+% WORD26
+四	y o N
+% WORD27
+五	g o
+% WORD28
+六	r o k u
+% WORD29
+七	n a n a
+% WORD30
+八	h a ch i
+% WORD31
+九	ky u u
+% WORD32
+十	j u u
+% NS_B
+[s]	silB
+% NS_E
+[/s]	silE
