@@ -1,7 +1,0 @@
-{
-    "yomi2voca"        : "/Your/Julius/Path/julius-4.4.2.1/gramtools/yomi2voca/yomi2voca.pl",
-    "mkdfa"            : "/Your/Julius/Path/julius-4.4.2.1/gramtools/mkdfa/mkdfa.pl",
-    "output_path"      : "./dict",
-    "output_dict_name" : "words",
-    "number_range"     : "30"
-}

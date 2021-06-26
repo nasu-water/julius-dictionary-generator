@@ -9,22 +9,18 @@ from kanjize import int2kanji, kanji2int
 
 class JuliusDictGenerator:
 
-    def __init__(self, path=None, output_file_name=None):
-        self.read_config_file('./config.json')
-        self.path = path if not path is None else self.config['output_path']
-        self.output_file_name = output_file_name if not output_file_name is None else self.config['output_dict_name']
+    def __init__(self, path, output_file_name, yomi2voca_file_path, mkdfa_file_path, number_range):
+        self.path = path 
+        self.output_file_name = output_file_name 
         self.output_file_path = self.path + '/' + self.output_file_name
+        self.yomi2voca_file_path = yomi2voca_file_path
+        self.mkdfa_file_path = mkdfa_file_path
+        self.number_range = number_range
+
         self.create_output_dir()
 
-        
-    def read_config_file(self, config_file_name):
-        with open(config_file_name, mode='r') as conf_file:
-            self.config = json.load(conf_file)
-
-        self.yomi2voca_file_path = self.config['yomi2voca']
-        self.mkdfa_file_path = self.config['mkdfa']
-        self.number_range = self.config['number_range']
-            
+    def set_number_range(self, number):
+        self.number_range = number
 
     def create_output_dir(self):
         os.makedirs(self.path, exist_ok=True)
@@ -63,7 +59,7 @@ class JuliusDictGenerator:
 
         for sentence in sentenses_list:
             if '%n' in sentence:
-                for i in range(1,int(self.config['number_range'])):
+                for i in range(1,int(self.number_range)):
                     sentenses_list_str += sentence.replace('%n', int2kanji(i)) + '\n'
             else:
                 sentenses_list_str += sentence + '\n'
@@ -141,6 +137,7 @@ class JuliusDictGenerator:
 
     def generate_dict_file(self):
         command = self.mkdfa_file_path + ' ' + self.output_file_path
+        print('command : ' + command)
         result = subprocess.check_output(command.split(' '))
 
         
@@ -152,23 +149,3 @@ class JuliusDictGenerator:
         self.generate_grammar_file(title_value_map)
         self.generate_dict_file()
         
-
-if __name__ == '__main__':
-    sentenses_list = ["サンプル文言",
-                      "エアコンの温度を下げて",
-                      "エアコンつけて",
-                      "電気つけて",
-                      "テレビ消して",
-                      "パソコンの調子が悪いです",
-                      "暖房つけて",
-                      "暖房切って",
-                      "部屋が暑い",
-                      "部屋が寒い",
-                      "エアコン%n度",
-                      "暖房%n度",
-                      "暖房%n"
-                      
-    ]
-
-    jdg = JuliusDictGenerator()
-    jdg.start(sentenses_list)
